@@ -963,9 +963,10 @@ echo "We will now configure the new installation."
 sleep 2;clear
 arch-chroot /mnt sh /setup.sh
 
-# Remove setup script
+# Remove scripts
 
 rm /mnt/setup.sh
+rm /mnt/post-install.sh
 
 # Unmount all drives (surpressing all error messages)
 
