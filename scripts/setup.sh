@@ -1111,11 +1111,6 @@ echo ""
 echo "Done. GRUB has been installed as the bootlader."
 echo ""
 
-# Switch to created superuser and run post-install script
-
-cd /home/home/$username
-su $username sh /post-install.sh
-
 echo "+----------+"
 echo "| FINISHED |"
 echo "+----------+"
