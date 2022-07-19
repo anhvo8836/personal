@@ -1111,6 +1111,13 @@ echo ""
 echo "Done. GRUB has been installed as the bootlader."
 echo ""
 
+# Execute the post-install script
+
+cat > /post-install.sh << EOF
+echo "We are currently logged in as : $(whoami)"
+echo ""
+EOF
+
 echo "+----------+"
 echo "| FINISHED |"
 echo "+----------+"
