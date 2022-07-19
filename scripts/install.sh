@@ -943,12 +943,12 @@ echo ""
 
 echo "One moment while we download the setup script..."
 echo ""
-curl https://raw.githubusercontent.com/anhvo8836/alibi/main/setup.sh > /mnt/setup.sh
+curl https://raw.githubusercontent.com/anhvo8836/personal/main/scripts/setup.sh > /mnt/setup.sh
 echo ""
 
-echo "One moment while we download your post-install script..."
+echo "One moment while we download the post-install script..."
 echo ""
-curl https://raw.githubusercontent.com/anhvo8836/alibi/main/setup.sh > /mnt/setup.sh
+curl https://raw.githubusercontent.com/anhvo8836/personal/main/scripts/post-install.sh > /mnt/post-install.sh
 echo ""
 
 # Generate FSTab file
