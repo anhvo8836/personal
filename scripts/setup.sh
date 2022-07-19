@@ -1116,7 +1116,6 @@ echo ""
 cd /home/home/$username
 su $username sh /post-install.sh
 
-
 echo "+----------+"
 echo "| FINISHED |"
 echo "+----------+"
