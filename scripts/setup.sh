@@ -1113,6 +1113,7 @@ echo ""
 
 # Run the post-install script as created superuser account
 
+chmod +x /post-install.sh
 su -c /post-install.sh $username
 
 echo "+----------+"
