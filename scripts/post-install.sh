@@ -36,7 +36,7 @@ case "$htop" in
 
     echo "OK, htop will now be installed..."
     echo ""
-    pacman -S htop --needed --noconfirm
+    sudo pacman -S htop --needed --noconfirm
     echo ""
     echo "Done. Htop has been installed."
 
@@ -77,7 +77,7 @@ case "$git" in
 
     echo "OK, git will now be installed..."
     echo ""
-    pacman -S git --needed --noconfirm
+    sudo pacman -S git --needed --noconfirm
     echo ""
     echo "Done. Git has been installed."
 
@@ -118,7 +118,7 @@ case "$neofetch" in
 
     echo "OK, neofetch will now be installed..."
     echo ""
-    pacman -S neofetch --needed --noconfirm
+    sudo pacman -S neofetch --needed --noconfirm
     echo ""
     echo "Done. Neofetch has been installed."
 
@@ -159,7 +159,7 @@ case "$firefox" in
 
     echo "OK, Firefox will now be installed..."
     echo ""
-    pacman -S firefox --needed --noconfirm
+    sudo pacman -S firefox --needed --noconfirm
     echo ""
     echo "Done. Firefox has been installed."
 
@@ -422,11 +422,12 @@ case "$yay" in
 
     echo "OK, Yay will now be installed..."
     echo ""
+    cd ~
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
     cd
-    rm -rf /home/home/yay/
+    rm -rf yay
 
     ;;
 
@@ -485,9 +486,3 @@ case "$app" in
 
 esac
 echo ""
-
-echo "+--------------+"
-echo "| CONFIG FILES |"
-echo "+--------------+"
-echo ""
-
