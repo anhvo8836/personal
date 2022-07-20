@@ -320,21 +320,21 @@ echo "Package : iptables-nft"
 echo "Description : Linux kernel packet control tool (using nft interface)"
 echo "Repository : Core"
 echo ""
-echo "1) Yes"
-echo "2) No (Default)"
+echo "1) No (Default)"
+echo "2) Yes"
 echo ""
 read qemu
 echo ""
 
 case "$qemu" in
 
-    1)
+    1) # No
 
     echo "OK, QEMU and Virt-Manager will not be installed."
 
     ;;
 
-    2)
+    2) # Yes
 
     echo "OK, QEMU and Virt-Manager will now be installed..."
     echo ""
@@ -346,7 +346,7 @@ case "$qemu" in
 
     ;;
 
-    *)
+    *) # Default option
 
     echo "OK, QEMU and Virt-Manager will not be installed."
 
@@ -367,21 +367,21 @@ echo "Package : libretro-core-info"
 echo "Description : Libretro core info files"
 echo "Repository : Community"
 echo ""
-echo "1) Yes"
-echo "2) No (Default)"
+echo "1) No (Default)"
+echo "2) Yes"
 echo ""
 read retroarch
 echo ""
 
 case "$retroarch" in
 
-    1)
+    1) # No
 
     echo "OK, RetroArch will not be installed."
 
     ;;
 
-    2)
+    2) # Yes
 
     echo "OK, RetroArch will now be installed..."
     echo ""
@@ -391,7 +391,7 @@ case "$retroarch" in
 
     ;;
 
-    *)
+    *) # Default option
 
     echo "OK, RetroArch will not be installed."
 
@@ -412,13 +412,13 @@ echo ""
 
 case "$yay" in
 
-    1)
+    1) # No
 
     echo "OK, Yay will not be installed."
 
     ;;
 
-    2)
+    2) # Yes
 
     echo "OK, Yay will now be installed..."
     echo ""
@@ -431,7 +431,7 @@ case "$yay" in
 
     ;;
 
-    *)
+    *) # Default option
 
     echo "OK, yay will not be installed."
 
@@ -462,23 +462,23 @@ echo ""
 
 case "$app" in
 
-    1)
+    1) # No
 
     echo "OK, timeshift and timeshift-autosnap will not be installed."
 
     ;;
 
-    2)
+    2) # Yes
 
     echo "OK, timeshift and timeshift-autosnap will now be installed..."
     echo ""
-    yay -S timeshift timeshift-autosnap --needed --noconfirm
+    yay -S timeshift-bin timeshift-autosnap --needed --noconfirm
     echo ""
     echo "Done. timeshift and timeshift-autosnap has been installed."
 
     ;;
 
-    *)
+    *) # Default option
 
     echo "OK, timeshift and timeshift-autosnap will not be installed."
 
