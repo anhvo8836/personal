@@ -400,6 +400,47 @@ case "$retroarch" in
 esac
 echo ""
 
+# KTorrent
+
+echo "Would you like to install KTorrent?"
+echo ""
+echo "Package : ktorrent"
+echo "Description : A powerful BitTorrent client for KDE"
+echo "Repository : Extra"
+echo ""
+echo "1) No (Default)"
+echo "2) Yes"
+echo ""
+read ktorrent
+echo ""
+
+case "$ktorrent" in
+
+    1) # No
+
+    echo "OK, KTorrent will not be installed."
+
+    ;;
+
+    2) # Yes
+
+    echo "OK, KTorrent will now be installed..."
+    echo ""
+    sudo -S pacman -S retroarch libretro-core-info --needed --noconfirm
+    echo ""
+    echo "Done. KTorrent has been installed."
+
+    ;;
+
+    *) # Default option
+
+    echo "OK, KTorrent will not be installed."
+
+    ;;
+
+esac
+echo ""
+
 # Yay
 
 echo "Would you like to install yay?"
@@ -446,7 +487,7 @@ echo ""
 echo "Would you like to install Timeshift and Timeshift-autosnap?"
 echo "NOTE : Yay will need to be installed"
 echo ""
-echo "Package : timeshift"
+echo "Package : timeshift-bin"
 echo "Description : A system restore utility for Linux"
 echo "Repository : AUR"
 echo ""
@@ -460,7 +501,7 @@ echo ""
 read app
 echo ""
 
-case "$app" in
+case "$timeshift" in
 
     1) # No
 
