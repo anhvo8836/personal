@@ -36,7 +36,7 @@ case "$htop" in
 
     echo "OK, htop will now be installed..."
     echo ""
-    sudo pacman -S htop --needed --noconfirm
+    sudo -S pacman -S htop --needed --noconfirm
     echo ""
     echo "Done. Htop has been installed."
 
@@ -77,7 +77,7 @@ case "$git" in
 
     echo "OK, git will now be installed..."
     echo ""
-    sudo pacman -S git --needed --noconfirm
+    sudo -S pacman -S git --needed --noconfirm
     echo ""
     echo "Done. Git has been installed."
 
@@ -118,7 +118,7 @@ case "$neofetch" in
 
     echo "OK, neofetch will now be installed..."
     echo ""
-    sudo pacman -S neofetch --needed --noconfirm
+    sudo -S pacman -S neofetch --needed --noconfirm
     echo ""
     echo "Done. Neofetch has been installed."
 
@@ -159,7 +159,7 @@ case "$firefox" in
 
     echo "OK, Firefox will now be installed..."
     echo ""
-    sudo pacman -S firefox --needed --noconfirm
+    sudo -S pacman -S firefox --needed --noconfirm
     echo ""
     echo "Done. Firefox has been installed."
 
@@ -200,7 +200,7 @@ case "$vlc" in
 
     echo "OK, vlc will now be installed..."
     echo ""
-    sudo pacman -S vlc --needed --noconfirm
+    sudo -S pacman -S vlc --needed --noconfirm
     echo ""
     echo "Done. VLC has been installed."
 
@@ -242,7 +242,7 @@ case "$kdeconnect" in
 
     echo "OK, KDE Connect will now be installed..."
     echo ""
-    sudo pacman -S kdeconnect --needed --noconfirm
+    sudo -S pacman -S kdeconnect --needed --noconfirm
     echo ""
     echo "Done. KDE Connect has been installed."
 
@@ -283,7 +283,7 @@ case "$gimp" in
 
     echo "OK, GIMP will now be installed..."
     echo ""
-    sudo pacman -S gimp --needed --noconfirm
+    sudo -S pacman -S gimp --needed --noconfirm
     echo ""
     echo "Done. GIMP has been installed."
 
@@ -338,8 +338,8 @@ case "$qemu" in
 
     echo "OK, QEMU and Virt-Manager will now be installed..."
     echo ""
-    sudo pacman -S qemu-base virt-manager dnsmasq iptables-nft --needed
-    sudo systemctl enable libvirtd.service
+    sudo -S pacman -S qemu-base virt-manager dnsmasq iptables-nft --needed
+    sudo -S systemctl enable libvirtd.service
     echo ""
     echo "Done. QEMU and Virt-Manager has been installed."
     echo "The libvirt service has been enabled."
@@ -385,7 +385,7 @@ case "$retroarch" in
 
     echo "OK, RetroArch will now be installed..."
     echo ""
-    sudo pacman -S retroarch libretro-core-info --needed --noconfirm
+    sudo -S pacman -S retroarch libretro-core-info --needed --noconfirm
     echo ""
     echo "Done. RetroArch has been installed."
 
