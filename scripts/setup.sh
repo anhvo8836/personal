@@ -370,7 +370,7 @@ echo ""
 
 # Ask if the user wants to start Fstrim for SSDs
 
-echo "Do you want to enable to FSTrim service?"
+echo "Do you want to enable the FSTrim service?"
 echo "This is HIGHLY recommended if you are using an SSD"
 echo ""
 echo "1) No - Do not enable FSTrim service (Default)"
@@ -601,7 +601,7 @@ case "$gpuName" in
 
     echo "OK. The VMWare / Virtualbox / QEMU drivers will be installed."
     echo ""
-    pacman -S xf86-video-vmware spice-vdagent --needed --noconfirm
+    pacman -S mesa xf86-video-vmware --needed --noconfirm
     echo ""
     echo "Done. The VMWare / Virtualbox / QEMU drivers have been installed."
 
@@ -654,7 +654,7 @@ case "$audioName" in
 
     echo "OK. Pipewire will be installed."
     echo ""
-    pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack gst-plugin-pipewire --needed --noconfirm
+    pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack gst-plugin-pipewire libpulse --needed --noconfirm
     echo ""
     echo "Done. Pipewire has been installed."
 
