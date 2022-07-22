@@ -124,6 +124,7 @@ case "$neofetch" in
 
     echo "One moment while we download your neofetch config file..."
     echo ""
+    mkdir -p ~/.config/neofetch && touch ~/.config/neofetch/config.conf
     https://raw.githubusercontent.com/anhvo8836/personal/main/configs/config.conf > ~/.config/neofetch/config.conf
     echo ""
 
@@ -431,7 +432,7 @@ case "$ktorrent" in
 
     echo "OK, KTorrent will now be installed..."
     echo ""
-    sudo -S pacman -S retroarch libretro-core-info --needed --noconfirm
+    sudo -S pacman -S ktorrent --needed --noconfirm
     echo ""
     echo "Done. KTorrent has been installed."
 
