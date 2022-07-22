@@ -114,13 +114,18 @@ case "$neofetch" in
 
     ;;
 
-    2) #Yes
+    2) # Yes
 
     echo "OK, neofetch will now be installed..."
     echo ""
     sudo -S pacman -S neofetch --needed --noconfirm
     echo ""
     echo "Done. Neofetch has been installed."
+
+    echo "One moment while we download your neofetch config file..."
+    echo ""
+    https://raw.githubusercontent.com/anhvo8836/personal/main/configs/config.conf > ~/.config/neofetch/config.conf
+    echo ""
 
     ;;
 
@@ -513,7 +518,7 @@ case "$timeshift" in
 
     echo "OK, timeshift and timeshift-autosnap will now be installed..."
     echo ""
-    yay -S timeshift-bin timeshift-autosnap --needed --noconfirm
+    yay -S timeshift-bin timeshift-autosnap --needed
     echo ""
     echo "Done. timeshift and timeshift-autosnap has been installed."
 
@@ -526,4 +531,14 @@ case "$timeshift" in
     ;;
 
 esac
+echo ""
+
+echo "+--------------+"
+echo "| CONFIG FILES |"
+echo "+--------------+"
+echo ""
+
+echo "One moment while we download your fish shell config file..."
+echo ""
+curl https://raw.githubusercontent.com/anhvo8836/personal/main/configs/config.fish > ~/.config/fish/config.fish
 echo ""
