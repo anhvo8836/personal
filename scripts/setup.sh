@@ -722,18 +722,28 @@ case "$printer" in
 esac
 echo ""
 
-echo "+---------+"
-echo "| DESKTOP |"
-echo "+---------+"
+echo "+---------------------+"
+echo "| DESKTOP ENVIRONMENT |"
+echo "+---------------------+"
 echo ""
 
 # Ask if the user would like to install a desktop environment or a window manager
 
 echo "Would you like to install one of the desktop environment or a window manager profiles?"
 echo ""
+echo "What desktop environment would you like to install?"
+echo ""
 echo "1) None (Default)"
-echo "2) Desktop Environment"
-echo "3) Window Manager"
+echo "2) Budgie"
+echo "3) Cinnamon"
+echo "4) Cutefish"
+echo "5) Deepin"
+echo "6) Enlightenment"
+echo "7) Gnome"
+echo "8) LXQT"
+echo "9) Mate"
+echo "10) Plasma"
+echo "11) XFCE"
 echo ""
 read desktop
 echo ""
@@ -742,307 +752,113 @@ case "$desktop" in
 
     1) # None
 
-    echo "OK. No desktop environment or window manager will be installed."
+    echo "OK. No desktop environment will be installed."
 
     ;;
 
-    2) # Desktop Environments
+    2) # Budgie
 
-    # Credit : These profiles were copied from archinstall profiles and modified accordingly
-    # The original profiles can be found here : https://gitlab.archlinux.org/archlinux/archinstall/-/tree/master/profiles
-
-    # Additions/Changes
-
-    # All - added network-manager-applet to all profiles for easier internet configuration after first boot
-
-    # Plasma - added print-manager as Plasma doesn't have a printer section in Settings by default
-
-    echo "--------------------"
-    echo "Desktop Environments"
-    echo "--------------------"
+    echo "OK. The Budgie desktop will be installed."
     echo ""
-
-    # Ask user for which desktop environment to install
-
-    echo "What desktop environment would you like to install?"
+    pacman -S xorg-server xorg-xinit budgie-desktop gnome lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
     echo ""
-    echo "1) None (Default)"
-    echo "2) Budgie"
-    echo "3) Cinnamon"
-    echo "4) Cutefish"
-    echo "5) Deepin"
-    echo "6) Enlightenment"
-    echo "7) Gnome"
-    echo "8) LXQT"
-    echo "9) Mate"
-    echo "10) Plasma"
-    echo "11) XFCE"
-    echo ""
-    read desktop
-    echo ""
-
-    case "$desktop" in
-
-        1) # None
-
-        echo "OK. No desktop environment will be installed."
-
-        ;;
-
-        2) # Budgie
-
-        echo "OK. The Budgie desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit budgie-desktop gnome lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
-        echo ""
-        echo "Done. The Budgie desktop has been installed."
-
-        ;;
-
-        3) # Cinnamon
-
-        echo "OK. The Cinnamon desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit cinnamon system-config-printer gnome-keyring gnome-terminal blueberry metacity lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
-        echo ""
-        echo "Done. The Cinnamon desktop has been installed."
-
-        ;;
-
-        4) # Cutefish
-
-        echo "OK. The Cutefish desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit cutefish noto-fonts sddm cutefish-terminal network-manager-applet --needed --noconfirm;systemctl enable sddm.service
-        echo ""
-        echo "Done. The Cutefish desktop has been installed."
-
-        ;;
-
-        5) # Deepin
-
-        echo "OK. The Deepin desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit deepin deepin-terminal deepin-editor lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
-        echo ""
-        echo "Done. The Deepin desktop has been installed."
-
-        ;;
-
-        6) # Enlightenment
-
-        echo "OK. The Enlightenment desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit enlightenment terminology lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
-        echo ""
-        echo "Done. The Enlightenment desktop has been installed."
-
-        ;;
-
-        7) # GNOME
-
-        echo "OK. The GNOME desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit gnome gnome-tweaks gdm network-manager-applet --needed --noconfirm;systemctl enable gdm.service
-        echo ""
-        echo "Done. The GNOME desktop has been installed."
-
-        ;;
-
-        8) # LXQT
-
-        echo "OK. The LXQT desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit lxqt breeze-icons oxygen-icons xdg-utils ttf-freefont leafpad slock sddm --needed --noconfirm;systemctl enable sddm.service
-        echo ""
-        echo "Done. The LXQT desktop has been installed."
-
-        ;;
-
-        9) # Mate
-
-        echo "OK. The Mate desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit mate mate-extra lightdm lightdm-gtk-greeter --needed --noconfirm;systemctl enable lightdm.service
-        echo ""
-        echo "Done. The Mate desktop has been installed."
-        ;;
-
-        10) # Plasma
-
-        echo "OK. The Plasma desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit plasma-meta plasma-wayland-session konsole kwrite dolphin ark sddm egl-wayland print-manager network-manager-applet --needed --noconfirm;systemctl enable sddm.service
-        echo ""
-        echo "Done. The Plasma desktop has been installed."
-
-        ;;
-
-        11) # XFCE
-
-        echo "OK. The XFCE desktop will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit xfce4 xfce4-goodies pavucontrol gvfs xarchiver lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
-        echo ""
-        echo "Done. The XFCE desktop has been installed."
-
-        ;;
-
-        *) # Default option
-
-        echo "OK. No desktop environment will be installed."
-
-        ;;
-
-    esac
+    echo "Done. The Budgie desktop has been installed."
 
     ;;
 
-    3) # Window Managers
+    3) # Cinnamon
 
-    # Credit : These profiles were copied from archinstall profiles and modified accordingly
-    # The original profiles can be found here : https://gitlab.archlinux.org/archlinux/archinstall/-/tree/master/profiles
-
-    # Additions/Changes
-
-    # All
-    # Swapped in alacritty as the default terminal for all profiles except for BSPWM
-
-    # Awesome
-    # lightdm and lightdm-gtk-greeter were added as Awesome WM does not come with a login manager by default
-        # Added so the user doesn't have to use startx to start the WM
-    # feh was swapped out for nitrogen as a more user-friendly option for setting wallpapers
-
-    echo "+-----------------+"
-    echo "| WINDOW MANAGERS |"
-    echo "+-----------------+"
+    echo "OK. The Cinnamon desktop will be installed."
     echo ""
-
-    # Ask user for which window manager to install
-
-    echo "What window manager would you like to install?"
+    pacman -S xorg-server xorg-xinit cinnamon system-config-printer gnome-keyring gnome-terminal blueberry metacity lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
     echo ""
-    echo "1) None (Default)"
-    echo "2) Awesome"
-    echo "3) BSPWM"
-    echo "4) i3"
-    echo "5) Qtile"
-    echo "6) Sway"
+    echo "Done. The Cinnamon desktop has been installed."
+
+    ;;
+
+    4) # Cutefish
+
+    echo "OK. The Cutefish desktop will be installed."
     echo ""
-    read window_manager
+    pacman -S xorg-server xorg-xinit cutefish noto-fonts sddm cutefish-terminal network-manager-applet --needed --noconfirm;systemctl enable sddm.service
     echo ""
+    echo "Done. The Cutefish desktop has been installed."
 
-    case "$window_manager" in
+    ;;
 
-        1) # None
+    5) # Deepin
 
-        echo "OK. No window manager will be installed."
+    echo "OK. The Deepin desktop will be installed."
+    echo ""
+    pacman -S xorg-server xorg-xinit deepin deepin-terminal deepin-editor lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
+    echo ""
+    echo "Done. The Deepin desktop has been installed."
 
-        ;;
+    ;;
 
-        2) # Awesome
+    6) # Enlightenment
 
-        echo "OK. The Awesome window manager will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit awesome xorg-xrandr alacritty nitrogen slock terminus-font gnu-free-fonts ttf-liberation xsel lightdm lightdm-gtk-greeter --needed --noconfirm;systemctl enable lightdm.service
-        echo ""
-        echo "The Awesome window manager has been installed."
+    echo "OK. The Enlightenment desktop will be installed."
+    echo ""
+    pacman -S xorg-server xorg-xinit enlightenment terminology lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
+    echo ""
+    echo "Done. The Enlightenment desktop has been installed."
 
-        ;;
+    ;;
 
-        3) # BSPWM
+    7) # GNOME
 
-        echo "OK. The BSPWM window manager will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit bspwm sxhkd dmenu xdo rxvt-unicode lightdm light-gtk-greeter --needed --noconfirm;systemctl enable lightdm.service
-        echo ""
-        echo "The BSPWM window manager has been installed."
+    echo "OK. The GNOME desktop will be installed."
+    echo ""
+    pacman -S xorg-server xorg-xinit gnome gnome-tweaks gdm network-manager-applet --needed --noconfirm;systemctl enable gdm.service
+    echo ""
+    echo "Done. The GNOME desktop has been installed."
 
-        ;;
+    ;;
 
-        4) # i3
+    8) # LXQT
 
-        # Ask the user which version of i3 to install
+    echo "OK. The LXQT desktop will be installed."
+    echo ""
+    pacman -S xorg-server xorg-xinit lxqt breeze-icons oxygen-icons xdg-utils ttf-freefont leafpad slock sddm --needed --noconfirm;systemctl enable sddm.service
+    echo ""
+    echo "Done. The LXQT desktop has been installed."
 
-        echo "Which version of i3 would you like to install?"
-        echo ""
-        echo "1) i3-wm (Default)"
-        echo "2) i3-gaps"
-        echo ""
-        read i3
-        echo ""
+    ;;
 
-            # Install chosen version of i3
+    9) # Mate
 
-            case "i3" in
+    echo "OK. The Mate desktop will be installed."
+    echo ""
+    pacman -S xorg-server xorg-xinit mate mate-extra lightdm lightdm-gtk-greeter --needed --noconfirm;systemctl enable lightdm.service
+    echo ""
+    echo "Done. The Mate desktop has been installed."
+    
+    ;;
 
-                1) # i3-wm
+    10) # Plasma
 
-                echo "OK. The i3 window manager will be installed."
-                echo ""
-                pacman -S xorg-server xorg-xinit i3-wm i3lock i3status i3blocks alacritty dmenu lightdm lightdm-gtk-greeter --needed --noconfirm;systemctl enable lightdm.service
-                echo ""
-                echo "The i3 window manager has been installed."
+    echo "OK. The Plasma desktop will be installed."
+    echo ""
+    pacman -S xorg-server xorg-xinit plasma-meta plasma-wayland-session konsole kwrite dolphin ark sddm egl-wayland print-manager network-manager-applet --needed --noconfirm;systemctl enable sddm.service
+    echo ""
+    echo "Done. The Plasma desktop has been installed."
 
-                ;;
+    ;;
 
-                2) # i3-gaps
+    11) # XFCE
 
-                echo "OK. The i3-gaps window manager will be installed."
-                echo ""
-                pacman -S xorg-server xorg-xinit i3-gaps i3lock i3status i3blocks alacritty dmenu lightdm lightdm-gtk-greeter  --needed --noconfirmsystemctl enable lightdm.service
-                echo ""
-                echo "The i3-gaps window manager has been installed."
-
-                ;;
-
-                *) # Default option
-
-                echo "OK. The i3 window manager will be installed."
-                echo ""
-                pacman -S xorg-server xorg-xinit i3-wm i3lock i3status i3blocks alacritty dmenu lightdm lightdm-gtk-greeter --needed --noconfirm;systemctl enable lightdm.service
-                echo ""
-                echo "The i3 window manager has been installed."
-
-                ;;
-
-            esac
-
-        ;;
-
-        5) # Qtile
-
-        echo "OK. The Qtile window manager will be installed."
-        echo ""
-        pacman -S xorg-server xorg-xinit qtile alactritty lightdm lightdm-gtk-greeter --needed --noconfirm;systemctl enable lightdm.service
-        echo ""
-        echo "The Qtile window manager has been installed."
-
-        ;;
-
-        6) # Sway
-
-        echo "OK. The Sway window manager will be installed."
-        echo ""
-        pacman -S sway swaylock swayidle waybar dmenu light grim slurp pavucontrol foot --needed --noconfirm
-        echo ""
-        echo "The Sway window manager has been installed."
-
-        ;;
-
-        *) # Default option
-
-        echo "OK. No window manager will be installed."
-
-        ;;
-
-    esac
+    echo "OK. The XFCE desktop will be installed."
+    echo ""
+    pacman -S xorg-server xorg-xinit xfce4 xfce4-goodies pavucontrol gvfs xarchiver lightdm lightdm-gtk-greeter network-manager-applet --needed --noconfirm;systemctl enable lightdm.service
+    echo ""
+    echo "Done. The XFCE desktop has been installed."
 
     ;;
 
     *) # Default option
 
-    echo "OK. No desktop environment or window manager will be installed."
+    echo "OK. No desktop environment will be installed."
 
     ;;
 
