@@ -5,13 +5,6 @@ if status is-interactive
 
 set fish_greeting
 
-# Powerline
-# powerline and powerline-fonts must be installed for this function to work properly
-
-#set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
-#source /usr/share/powerline/bindings/fish/powerline-setup.fish
-#powerline-setup
-
 # Aliases
 
     # Maintenance Alias
